@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0 auto;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .w {
+      width: 600px;
+    }
+
+    .diagram {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      width: 100%;
+      height: 300px;
+      border-left: 1px solid skyblue;
+      border-bottom: 1px solid skyblue;
+    }
+
+    .diagram div {
+      width: 75px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .diagram .num {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .diagram div .color {
+      height: num1;
+      background-color: skyblue;
+    }
+
+    .title {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="w">
+    <div class="diagram">
+      <div class="part1"><span class="num">1</span>
+        <div class="color"></div>
+      </div>
+      <div class="part2"><span class="num">2</span>
+        <div class="color"></div>
+      </div>
+      <div class="part3"><span class="num">3</span>
+        <div class="color"></div>
+      </div>
+      <div class="part4"><span class="num">4</span>
+        <div class="color"></div>
+      </div>
+    </div>
+    <div class="title">
+      <h4>第1季度</h4>
+      <h4>第2季度</h4>
+      <h4>第3季度</h4>
+      <h4>第4季度</h4>
+    </div>
+  </div> -->
+  <script>
+    let num = []
+    for (let i = 1; i < 5; i++) {
+      num.push(+prompt(`请输入第${i}季度的收入`))
+    }
+    document.write(`<div class="w">`)
+    document.write(`<div class="diagram">`)
+    for (let i = 0; i < 4; i++) {
+      document.write(`<div class="part"><span class="num">${num[i]}</span>
+        <div class="color" style="height:${num[i] / 10}%;"></div></div>`)
+    }
+    document.write(`</div>`)
+    document.write(`<div class="title">`)
+    for (let i = 1; i < 5; i++) {                   //改进：利用magin-bottom将h4集合在part中只用一次遍历即可全部渲染
+      document.write(`<h4>第${i}季度</h4>`)
+    }
+    document.write(`</div>`)
+    document.write(`</div>`)
+  </script>
+</body>
+
+</html>
